@@ -29,3 +29,8 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
+
+#root {
+  background: #f7f7fa;
+  height: 100vh;
+}

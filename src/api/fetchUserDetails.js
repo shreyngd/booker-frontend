@@ -1,5 +1,8 @@
-import { userJSON } from "./stubs"
+import { userJSON } from "./stubs";
 
-const UserPermissions = new Promise((resolve, reject) => {
+const UserPermissions = () =>
+  new Promise((resolve, reject) => {
     setTimeout(() => resolve(userJSON), 3000);
-});
+  }).then((res) => res);
+
+export default UserPermissions;

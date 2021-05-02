@@ -1,1 +1,1 @@
-export fetchPermissionOfApp =
+export default function fetchPermissionOfApp() {}

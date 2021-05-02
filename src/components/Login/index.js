@@ -1,9 +1,8 @@
 import GoogleLogin from "react-google-button";
-import { useHistory } from "react-router";
+import { GOOGLE_AUTH_URL } from "../../CONSTANTS";
 import styles from "./index.module.scss";
 
 const Login = () => {
-  const history = useHistory();
   return (
     <section className={styles.loginContainer}>
       <header>
@@ -15,7 +14,7 @@ const Login = () => {
         <GoogleLogin
           type="light"
           onClick={() => {
-            history.replace("/main");
+            window.open(`${GOOGLE_AUTH_URL}`, "_self");
           }}
         />
       </article>

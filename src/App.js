@@ -1,32 +1,39 @@
+import { Suspense, lazy } from "react";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import Login from "./components/Login";
-import Main from "./components/Main";
+import Loader from "./components/Loader";
 import UserDetailProvider from "./context/userDetailsContext";
+
+const Login = lazy(() => import("./components/Login"));
+const Main = lazy(() => import("./components/Main"));
+const RoleSelection = lazy(() => import("./components/RoleSelection"));
 
 function App() {
   return (
-    <UserDetailProvider>
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss={false}
-        draggable
-        pauseOnHover={false}
-      />
+    <Suspense fallback={<Loader />}>
+      <UserDetailProvider>
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss={false}
+          draggable
+          pauseOnHover={false}
+        />
 
-      <BrowserRouter>
-        <Switch>
-          <Route path="/login" component={Login} />
-          <Route path="/main" component={Main} />
-          <Redirect to="/login" />
-        </Switch>
-      </BrowserRouter>
-    </UserDetailProvider>
+        <BrowserRouter>
+          <Switch>
+            <Route path="/login" component={Login} />
+            <Route path="/main" component={Main} />
+            <Route path="/settings" component={RoleSelection} />
+            <Redirect to="/login" />
+          </Switch>
+        </BrowserRouter>
+      </UserDetailProvider>
+    </Suspense>
   );
 }
 

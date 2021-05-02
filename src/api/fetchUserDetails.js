@@ -1,8 +1,7 @@
+import { PROFILE_URL } from "../CONSTANTS";
+import apiCall from "./apiCall";
 import { userJSON } from "./stubs";
 
-const UserPermissions = () =>
-  new Promise((resolve, reject) => {
-    setTimeout(() => resolve(userJSON), 0);
-  }).then((res) => res);
+const UserPermissions = () => apiCall(PROFILE_URL);
 
 export default UserPermissions;

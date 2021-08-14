@@ -1,16 +1,20 @@
 import styles from "./index.module.scss";
-import image from "../../logo.svg";
+import { useContext } from "react";
+import { UserDetailsContext } from "../../context/userDetailsContext";
 
 const Header = () => {
+  const { userDetail } = useContext(UserDetailsContext);
   return (
     <header className={styles.header}>
       <hgroup>
-        <h1>Slot Marker</h1>
+        <h1 className={styles.appName}>Slot Marker</h1>
       </hgroup>
-      <figure className={styles.nameContainer}>
-        <img src={image} alt="" />
-        <figcaption className={styles.name}>Sn</figcaption>
-      </figure>
+      {userDetail && (
+        <figure className={styles.nameContainer}>
+          <img src={userDetail.picture} alt="" />
+          <figcaption className={styles.name}>{userDetail.name}</figcaption>
+        </figure>
+      )}
     </header>
   );
 };

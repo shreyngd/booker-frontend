@@ -1,32 +1,48 @@
 .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 40px;
-    height: 72px;
-    left: 0px;
-    right: 0px;
-    top: 0px;
-    background: hsl(0, 0%, 100%);
-    box-shadow: 0px 1px 2px rgba(58, 58, 68, 0.24), 0px 2px 4px rgba(90, 91, 106, 0.24);
-    border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  height: 72px;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  background: hsl(0, 0%, 100%);
+  box-shadow: 0px 1px 2px rgba(58, 58, 68, 0.24),
+    0px 2px 4px rgba(90, 91, 106, 0.24);
+  border-radius: 4px;
 }
 
 .nameContainer {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 50%;
+  height: inherit;
+  align-items: center;
+  // justify-content:  flex-end;
+  img {
+    height: 75%;
+    border-radius: 50%;
+  }
+  .name {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 150%;
     display: flex;
-    flex-direction: row-reverse;
-    width: 50%;
-    height: inherit;
-    align-items: center;
-    // justify-content:  flex-end;
-    img {
-        height: 100%;
+    color: #19191d;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header {
+    padding: 0 10px;
+    .appName {
+      font-size: 1.5em;
     }
+  }
+  .nameContainer {
     .name {
-        font-weight: bold;
-        font-size: 24px;
-        line-height: 150%;
-        display: flex;
-        color: #19191d;
+      font-size: 16px;
     }
+  }
 }
